@@ -1,3 +1,4 @@
+import Notiflix from 'notiflix';
 // Описаний в документації
 import flatpickr from 'flatpickr';
 // Додатковий імпорт стилів
@@ -40,10 +41,10 @@ function onDateCheck(selectedDates) {
 
   if (selectedDate > currentDate) {
     refs.startBtnTimer.disabled = false;
-    alert(' Perfectly, Click on start.');
+    Notiflix.Report.success(' Perfectly, Click on start.');
     return;
   }
-  alert('Please choose a date in the future');
+  Notiflix.Report.failure('Please choose a date in the future');
 }
 
 function timerStart() {
@@ -53,7 +54,7 @@ function timerStart() {
       clearInterval(intervalId);
       refs.startBtnTimer.disabled = true;
       refs.dateInput.disabled = false;
-      alert(' Pongratulation, Timer stopped.');
+      Notiflix.Report.success(' Pongratulation, Timer stopped.');
       return;
     } else {
       refs.startBtnTimer.disabled = true;
